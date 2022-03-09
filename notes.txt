@@ -8,4 +8,7 @@
 - Agregar los scripts en el package.json
 - Verificar las dependencias globales que tengo instaladas (siempre hago esto porque se me olvidan) npm list -g --depth 0
 
+2. Levantando el servidor.
 
+- Instalar express
+- Levantar el servidor (el básico es el hello world que el mismo express pone de ejemplo)
