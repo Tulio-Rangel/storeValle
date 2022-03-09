@@ -1,0 +1,11 @@
+1. Pasos de configuración para el entorno de desarrollo.
+
+- Iniciar el proyecto: npm init -y
+- Crar los archivos: .gitignore, .eslintrc.json y .editorconfig
+- Buscar en gitignore.io los ignore para node, windows, mac y linux y copiarlos en el .gitignore
+- Agregar la configuración en el .editorconfig (uso la misma siempre)
+- Agregar la configuracipon del .eslintrc.json (uso la misma siempre)
+- Agregar los scripts en el package.json
+- Verificar las dependencias globales que tengo instaladas (siempre hago esto porque se me olvidan) npm list -g --depth 0
+
+
