@@ -12,3 +12,10 @@
 
 - Instalar express
 - Levantar el servidor (el básico es el hello world que el mismo express pone de ejemplo)
+
+3. Construir la API
+- Crear las rutas de las distintas instancias
+- Crear los servicios o controladores de las ruta ej: find, findById, etc.
+- Poner en los controladores los status codes.
+- Agregar asincronía a los controladores y en las rutas(?).
+- Agregar captura de errores con try-catch.
