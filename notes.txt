@@ -13,7 +13,7 @@
 - Instalar express
 - Levantar el servidor (el básico es el hello world que el mismo express pone de ejemplo)
 
-3. Construir la API
+3. Construir la API.
 - Crear las rutas de las distintas instancias
 - Crear los servicios o controladores de las ruta ej: find, findById, etc.
 - Poner en los controladores los status codes.
@@ -31,3 +31,22 @@
                             express debug: npm install express-debug --save-dev
                             express slash (sirve para no preocuparnos por poner slash en las rutas): npm install express-slash
                             passport: npm install passport
+- Recomendaciones en las APIs: el uso de cors: const cors = require('cors'); app.use(cors()); [Así dejamos la api abierta a cualquier dominio]
+                                https:
+                                Proceso de Build:
+                                Remover logs:
+                                Seguridad con Helmet:
+                                Testing
+
+4. Deploy (en heroku).
+- Crear cueta en heroku.
+- Descargar e instalar el CLI de heroku.
+- Instalación desde WSL o linux: curl https://cli-assets.heroku.com/install.sh | sh
+- Desde la terminal WSL o linux: |heroku login| |heroku create| |git remote -v|
+- Renombrar la app: heroku apps:rename <mi-api-rest>
+- Seguir la documentación de heroku.
+- Agregar el "engines" en el package.json y poner la versión de node en la que estamos trabajando.
+- Correr el comando heroku local web para verificar cómo corre en local.
+- Crear el archivo Procfile en la ruta principal y escribir web: npm run start (o el comando que tenga en los scripts para correr la app).
+- Hacer commit y hacer push a heroku: git push heroku main
+- Opcional: revisar cuando hayan errores internos: heroku logs --tail
