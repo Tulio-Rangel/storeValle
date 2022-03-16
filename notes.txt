@@ -19,3 +19,15 @@
 - Poner en los controladores los status codes.
 - Agregar asincronía a los controladores y en las rutas(?).
 - Agregar captura de errores con try-catch.
+- Crear carpeta de Middlewares y crear los primeros (o todos) los Middlewares.
+- Instalar la libreria Boom para trabajar el manejo de errores npm i @hapi/boom
+- Encontrar la documentación de las librerías npm docs <nombre de la libreria>
+- Hacer validación de datos con Joi.
+- Crear una caperta schemas o dtos y crear un archivo por cada entidad, ej: product.schema.js o product.dto.js
+- Crear un archivo validatorHandler para crear las validaciones con el shcema que hicimos con Joi en el paso anterior.
+- Otros Middlewares usados: cors: npm install cors
+                            morgan: npm install morgan
+                            helmet: npm install helmet
+                            express debug: npm install express-debug --save-dev
+                            express slash (sirve para no preocuparnos por poner slash en las rutas): npm install express-slash
+                            passport: npm install passport
