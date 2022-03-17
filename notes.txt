@@ -50,3 +50,28 @@
 - Crear el archivo Procfile en la ruta principal y escribir web: npm run start (o el comando que tenga en los scripts para correr la app).
 - Hacer commit y hacer push a heroku: git push heroku main
 - Opcional: revisar cuando hayan errores internos: heroku logs --tail
+
+5. Conexio a una BD (en este caso Postgres) con Docker.
+- Crear el archivo docker-compose.yml y crear la configuración en el archivo.
+- Levantar el contenedor y hacer la conexión desde la terminal (preferiblemente linux) con el comando: docker-compose up -d postgres (postgres puede ser reemplazado con cualquier nombre que le hayamos puesto al servicio).
+- Podemos ver qué servicios tenemos levantados en docker con el comando: docker-compose ps
+- Podemos parar nuestros servicios con el comando: docker-compose down y eso baja todo, si queremos bajar uno específico le agregamos el nombre del servicio luego del down.
+- Al darle down al contenedor, nuestra info en la bd se va a perder, por eso debemos crear un volumen en el archivo docker-compose.yml para que que cada vez que levantemos el contenedor esta busque en la carpeta que referenciamos en el volumen y que vamos a crear, la bd.
+- Para conectarnos al contenedor que creamos previamente, desde la terminal podemos correr el comando: docker-compose exec postgres bash (el postgres lo podemos cambiar por el nombre que le hayamos dado a nuestro servicio de docker).
+- Luego corremos el comando: psql -h localhost -d my_store -U tulio (my_store y tulio los definimos en el archivo docker-compose).
+- Para saber cómo es la estructura de nuestra bd, corremos el comando: \d+
+- Para salirnos de la bd corremos el comando: \q
+- Para salirnos de la coneción con postgres corremos el comando: exit (en este punto seguimos teniendo el contenedor arriba).
+- También podemos conectarnos con una interfaz gráfica con PGadmin, esto lo podemos hacer por medio de una imagen en docker, debemos ir al docker-compose y agregar el servicio de pg admin.
+- Debemos levantar el el servicio de pgadmin con el comando en la terminal: docker-compose up -d pgadmin
+- Ingresamos en nuestro navegador la ruta del localhost que definimos para nuestro servicio de posgrest e ingresamos las credenciales que habíamos definido, y listo, tenemos nuestra interfaz gráfica.
+- Debemos reggistrar un nuevo server en la interfaz gráfica, por nombre le podemos poner MyStore, luego en la pestaña de connection debemos colocar la dirección IP de nuestro contenedor.
+- Así se obtiene la IP del contenedor: corremos el comando: docker ps, eso nos va a dar el id de nuestro contenedor, luego corremos el comando docker inspect y el id del contenedor que adquirimos previamente y ahí obtenemos el IPAdrress.
+- Agregamos el IP obtenido, le ponemos el resto de credenciales que definimos en nuestro servicio de postgres.
+- Le damos a save password y luego al último safe y listo de momento.
+- En el botón query tools, creamos nuestra tabla.
+CREATE TABLE tasks (
+	id serial PRIMARY KEY,
+	title VARCHAR ( 250 ) NOT NULL,
+	completed boolean DEFAULT false
+);
