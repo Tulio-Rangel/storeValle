@@ -76,4 +76,4 @@ CREATE TABLE tasks (
 	completed boolean DEFAULT false
 );
 
-prueba
+prueba 2
