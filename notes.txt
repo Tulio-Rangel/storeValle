@@ -75,3 +75,5 @@ CREATE TABLE tasks (
 	title VARCHAR ( 250 ) NOT NULL,
 	completed boolean DEFAULT false
 );
+
+prueba
