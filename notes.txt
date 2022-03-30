@@ -87,3 +87,14 @@ CREATE TABLE tasks (
 - Con la conexión anterior cada vez que hagamos una query haríamos una conexión y nos llenaríamos de conexiones, para eso mejoraremos la conexión.
 - Creamos el archivo postgres.pool.js y hacemos las modificaciones que tenemos en el archivo de este repositorio.
 - Hacemos los mismo que con el método anterior, solo que esta vez lo vamos a hacer en products para tener algo diferente.
+
+8. Definiendo las Variables de Entorno.
+- Crear una carpeta llamada config.
+- Crear un archivo llamado config.js
+- Crear las variables de entorno.
+- Exportarlo a donde usemos datos que deberían estar ocultos.
+- Codificar las variables con encodeURIComponent (Esto no hay que instalarlo) en los archivos donde usaremos el config.
+- Dejar la conexión a la bd de forma que se pueda utilizar con una bd en linea como la de amazon.
+- Creamos nuestro archivo .env y creamos un archivo .env.example para que otros desarrolladores puedan ver cuáles variables de entorno son necesarias en nuestro programa.
+- Instalar el paquete: npm i dotenv
+- Requerir dotenv en el archivo config así: require('dotenv').config();
