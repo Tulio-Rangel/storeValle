@@ -81,3 +81,4 @@ CREATE TABLE tasks (
 - Creamos una nueva carpeta llamada libs, que es donde irán todas las librerías que usaremos donde haremos conexión con terceros, ejemplo, la base de datos.
 - Creamos un archivo en la carpeta libs llamado postgres.js
 - Seguimos la documentación, requerimos el Client de pg y con POO seteamos la configuración del nuevo client.
+- Exportamos el getConnection a nuestros services y empezamos a desarrollar la logica de db en las distintas funciones.
