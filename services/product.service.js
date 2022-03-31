@@ -1,14 +1,13 @@
 const faker = require('faker');
 const boom = require('@hapi/boom');
 
-const pool = require('../libs/postgres.pool');
+const sequelize = require('../libs/sequelize');
 
 class ProductsService {
-  constructor() {
+
+  constructor(){
     this.products = [];
     this.generate();
-    this.pool = pool;
-    this.pool.on('error', (err) => console.error(err));
   }
 
   generate() {
@@ -27,25 +26,20 @@ class ProductsService {
   async create(data) {
     const newProduct = {
       id: faker.datatype.uuid(),
-      ...data,
-    };
+      ...data
+    }
     this.products.push(newProduct);
     return newProduct;
   }
 
   async find() {
     const query = 'SELECT * FROM tasks';
-    const rta = await this.pool.query(query);
-    return rta.rows;
-    // return new Promise((resolve) => {
-    //   setTimeout(() => {
-    //     resolve(this.products);
-    //   }, 3000);
-    // });
+    const [data] = await sequelize.query(query);
+    return data;
   }
 
   async findOne(id) {
-    const product = this.products.find((item) => item.id === id);
+    const product = this.products.find(item => item.id === id);
     if (!product) {
       throw boom.notFound('product not found');
     }
@@ -56,26 +50,27 @@ class ProductsService {
   }
 
   async update(id, changes) {
-    const index = this.products.findIndex((item) => item.id === id);
+    const index = this.products.findIndex(item => item.id === id);
     if (index === -1) {
       throw boom.notFound('product not found');
     }
     const product = this.products[index];
     this.products[index] = {
       ...product,
-      ...changes,
+      ...changes
     };
     return this.products[index];
   }
 
   async delete(id) {
-    const index = this.products.findIndex((item) => item.id === id);
+    const index = this.products.findIndex(item => item.id === id);
     if (index === -1) {
       throw boom.notFound('product not found');
     }
     this.products.splice(index, 1);
     return { id };
   }
+
 }
 
 module.exports = ProductsService;

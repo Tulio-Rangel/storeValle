@@ -98,3 +98,9 @@ CREATE TABLE tasks (
 - Creamos nuestro archivo .env y creamos un archivo .env.example para que otros desarrolladores puedan ver cuáles variables de entorno son necesarias en nuestro programa.
 - Instalar el paquete: npm i dotenv
 - Requerir dotenv en el archivo config así: require('dotenv').config();
+
+9. Trabajando con ORM Sequelize.
+- Instalar sequelize: npm install sequelize
+- Instalar pg-hstore (recordar que estamos trabajando con postgress, revisar la documentación con las otras bd): npm i pg-hstore
+- Crear un archivo llamado sequelize.js en la carpeta libs.
+- Configurar el archivo con los datos de la db, en la instancia que crearemos debemos definir el 'dialecto' en el que estamos trabajando, en este caso postgres.
