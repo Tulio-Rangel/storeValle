@@ -104,3 +104,11 @@ CREATE TABLE tasks (
 - Instalar pg-hstore (recordar que estamos trabajando con postgress, revisar la documentación con las otras bd): npm i pg-hstore
 - Crear un archivo llamado sequelize.js en la carpeta libs.
 - Configurar el archivo con los datos de la db, en la instancia que crearemos debemos definir el 'dialecto' en el que estamos trabajando, en este caso postgres.
+
+10. Creando los Modelos de la Base de Datos.
+- Creamos una carpeta llamada bd y dentro una llamada models y ahí van los archivos con los modelos, tipo user.model.js
+- Realizamos la configuración de nuestro archivo modelo.
+- Creamos un archivo index.js en la carpeta models.
+- Todos los modelos los vamos a importar en el archivo index.js de la carpeta models.
+- Exportamos nuestro setUpModels del archivo index.js de la carpeta models y lo importamos en nuestro archivo sequelize.
+- Como en este primer ejemplo creamos una tabla para usuarios, vamos a actualizar la conexión a bd de usuarios en el archivo user.service.js
