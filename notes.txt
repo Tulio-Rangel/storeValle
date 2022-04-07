@@ -112,3 +112,4 @@ CREATE TABLE tasks (
 - Todos los modelos los vamos a importar en el archivo index.js de la carpeta models.
 - Exportamos nuestro setUpModels del archivo index.js de la carpeta models y lo importamos en nuestro archivo sequelize.
 - Como en este primer ejemplo creamos una tabla para usuarios, vamos a actualizar la conexión a bd de usuarios en el archivo user.service.js
+- Creamos el resto de funciones CRUD y el resto de modelos de nuestra API.
