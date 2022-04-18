@@ -113,3 +113,14 @@ CREATE TABLE tasks (
 - Exportamos nuestro setUpModels del archivo index.js de la carpeta models y lo importamos en nuestro archivo sequelize.
 - Como en este primer ejemplo creamos una tabla para usuarios, vamos a actualizar la conexión a bd de usuarios en el archivo user.service.js
 - Creamos el resto de funciones CRUD y el resto de modelos de nuestra API.
+- Creo el errorhandler del orm en el archivo error handler.
+
+11. Cambiando la Base de Datos a MySQL.
+- Agregamos los mismo datos de postgress pero esta vez con datos de MySQL en el archivo docker-compose.
+- Para tener interfaz gráfica creamos una imagen de phpMyAdmin en docker, los datos están en el archivo docker.compose.
+- Levantamos el servicio de mysql: docker-compose up -d mysql
+- Verificamos que el servicio esté arriba con: docker-compose ps
+- Levantar el servicio de phpmyadmin: docker-compose up -d phpmyadmin
+- instalar la dependencia de mysql: npm i mysql2
+- En nuestro archivo .env cambiamos el puerto por el que ahora usamos en mysql y el db user por root.
+- En nuestroa archivo libs/sequelize.js cambiamos la uri que empieza por postgress y le ponemos mysql y lo mismo en la linea donde dice el dialecto, le ponemos mysql.
