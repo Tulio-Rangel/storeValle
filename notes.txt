@@ -124,3 +124,23 @@ CREATE TABLE tasks (
 - instalar la dependencia de mysql: npm i mysql2
 - En nuestro archivo .env cambiamos el puerto por el que ahora usamos en mysql y el db user por root.
 - En nuestroa archivo libs/sequelize.js cambiamos la uri que empieza por postgress y le ponemos mysql y lo mismo en la linea donde dice el dialecto, le ponemos mysql.
+
+12. Haciendo Migraciones.
+- Instalar la dependencia sequelize-cli como una dependencia de desarrollo: npm i sequelize-cli -D
+- Se crea un archivo fuera llamado .sequelizerc y se agregan los datos que están en ese archivo.
+- En la carpeta db creamos 2 carpetas más llamadas seeders y migrations y un archivo config.js.
+- Llenamos el archivo config.js de la carpeta db con la info que está en el archivo actualmente.
+- En el archivo anterior, en el module.export colocamos los ambientes que vamos a usar (desarrollo, producción, etc).
+- En el archivo package.json vamos a agregar un nuevo sccript llamado migrations:generate y le vamos a poner la instrucción sequelize-cli migration:generate --name
+- Para correr lo anterior, en la terminal corremos: npm run migrations:generate y el nombre, en este caso será create-user quedando así: npm run migrations:generate create-user
+- Lo anterior crea un archivo en nuestra carpeta de migraciones de nuestra carpeta db.
+- Eliminaremos la linea de código que dice que sincronice en el archivo sequelizr de nuestra carpeta libs.
+- Importamos el schema y la tabla en el archivo de migración generado.
+- En el up ponemos como queremos que se cree la tabla.
+- En el down ponemos el reverso de lo anterior, es decir eliminar la tabla.
+- En este archivo podríamos colocar todas las migraciones, no solo la del usuario.
+- En las migraciones se pueden hacer más cosas que crear tablas, pero de momento ese es el ejemplo más básico.
+- En el package.json creamos un nuevo script:  "migrations:run": "sequelize-cli db:migrate"
+- El anterior script es para ahora correr la migración que creamos.
+- Y creamos un script para el revert:  "migrations:revert": "sequelize-cli db:migrate:undo"
+- Si corremos el comando de la migración y luego nos vamos a pgadmin, veremos que se creó también una tabla llamada SequeliMeta, esta tabla lleva el histórico de las migraciones.
