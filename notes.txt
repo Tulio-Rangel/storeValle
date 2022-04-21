@@ -144,3 +144,12 @@ CREATE TABLE tasks (
 - El anterior script es para ahora correr la migración que creamos.
 - Y creamos un script para el revert:  "migrations:revert": "sequelize-cli db:migrate:undo"
 - Si corremos el comando de la migración y luego nos vamos a pgadmin, veremos que se creó también una tabla llamada SequeliMeta, esta tabla lleva el histórico de las migraciones.
+
+13. Agregando Columnas a una Tabla ya Establecida.
+- Nos vamos al archivo del modelo y agregamos el nuevo campo que queremos agregar, en este caso, al modelo de usuarios le agregamos el rol.
+- Corremos en la terminal el siguiente comando: npm run migrations:generate add-role
+- Agregamos la info tal como está en el archivo para agregar la columna nueva.
+- Recordemos que en el archivo del esquema de usuarios tenemos el rol comentado, debemos descomentarlo para que todo trabaje bien.
+- Corremos el script de la migración : npm run migrations:run Esta va a correr solo la migración que acabos de hacer, solo va a agregar la nueva columna porque en su memoria ya corrió la migración para crear la tabla.
+- Ahora podemos testear creando usuarios con el nuevo rol.
+- En el esquema de usuario dejé comentado en la creación de usuario que el rol fuera requerido para probar que si se pusiera customer por defecto y sí lo hace.
