@@ -153,3 +153,17 @@ CREATE TABLE tasks (
 - Corremos el script de la migración : npm run migrations:run Esta va a correr solo la migración que acabos de hacer, solo va a agregar la nueva columna porque en su memoria ya corrió la migración para crear la tabla.
 - Ahora podemos testear creando usuarios con el nuevo rol.
 - En el esquema de usuario dejé comentado en la creación de usuario que el rol fuera requerido para probar que si se pusiera customer por defecto y sí lo hace.
+
+14. Relaciones Uno a Uno.
+- Primero tenemos que crear nuevas entidades ya que solo tenemos la de usuarios, en este caso creamos una para customer.
+- Creamos el modelo de customer, modificamos el archivo index de la carpeta models y agregamos los datos correspondientes de customer.
+- Creamos el archivo customer.service.js
+- Creamos el archivo customer.router.js y hacemos su respectiva referencia en el archivo index de la carpeta routes
+- Creamos el archivo customer.schema.js
+- Para definir la relación lo hacemos en el archivo model, en la función associate, en este caso lo hacermos en el archivo del customer con un belongsTo.
+- En el archivo index de la carpeta models terminamos la asiciación con la siguiente linea  Customer.associate(sequelize.models);
+- En el archivo del modelo del customer debemos agregar también esa relación, por eso le agregamos la columna userId (esta va a ser una foreign key).
+- En esa misma columna hay una línea llamada reference, eso es porque tenemos que hacer referencia a la tabla que va a hacer referencia, valga la redundancia, en este caso customer va a hacer referencia a users.
+- Creamos la migración para la tabla customer: npm run migrations:generate create-customers
+- Modificamos el archivo generado con los datos de customer.
+- Corremos el script de migrations:run
