@@ -1,5 +1,4 @@
 1. Pasos de configuración para el entorno de desarrollo.
-
 - Iniciar el proyecto: npm init -y
 - Crar los archivos: .gitignore, .eslintrc.json y .editorconfig
 - Buscar en gitignore.io los ignore para node, windows, mac y linux y copiarlos en el .gitignore
@@ -9,7 +8,6 @@
 - Verificar las dependencias globales que tengo instaladas (siempre hago esto porque se me olvidan) npm list -g --depth 0
 
 2. Levantando el servidor.
-
 - Instalar express
 - Levantar el servidor (el básico es el hello world que el mismo express pone de ejemplo)
 
@@ -167,3 +165,9 @@ CREATE TABLE tasks (
 - Creamos la migración para la tabla customer: npm run migrations:generate create-customers
 - Modificamos el archivo generado con los datos de customer.
 - Corremos el script de migrations:run
+- De momento en insomnia si hacemos get a los customer este nos va a mostrar el id de usuario de dicho customer, pero nosotros queremos es la info de dichi usuario, para eso nos vamos al servicio de customer y en el findAll vamos a agregar un includ que nosotros ya definimos en el modelo de customer como "as: 'user'", esto lo agregamos como un array dentro de un objeto, un array porque podemos tener varias relaciones en el customer, pero de mosmento la unica relación que tenemos es con user.
+- Ahora vamos a hacer la relación uno a uno de forma bidireccional, entonces nos vamos al modelo de usuarios y trabajamos en la función associate.
+- Agregamos la asociación en el index de la carpeta models
+- En el servicio de usuarios agregamos el include en el findAll para que nos resuelva el customer.
+- Vamos a modificar el customer de forma que podamos crear el usuario desde el customer, para eso nos vamos al schema de customer y modificamos la parte donde pedimos el userId y ahí vamos a requerir ahora los datos del usuario, no el id (esto es el código que tenía comentado antes), vamos a dejar el userId solo para la parte de actualización.
+- En el servicio de customer modificamos el crear, creando primero al usuario: const newUser = await models.User.create(data.user); y luego modificando un poco el código del customer:
