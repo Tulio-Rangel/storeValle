@@ -172,3 +172,12 @@ CREATE TABLE tasks (
 - Vamos a modificar el customer de forma que podamos crear el usuario desde el customer, para eso nos vamos al schema de customer y modificamos la parte donde pedimos el userId y ahí vamos a requerir ahora los datos del usuario, no el id (esto es el código que tenía comentado antes), vamos a dejar el userId solo para la parte de actualización.
 - En el servicio de customer modificamos el crear, creando primero al usuario: const newUser = await models.User.create(data.user); y luego modificando un poco el código del customer.
 - El código anterior queda más sencillo de la siguiente forma: const newCustomer = await models.Customer.create(data, {include: ['user'],});
+
+15. Relación Uno a Muchos.
+- Empezamos creando los schemas de category y products.
+- Creamos los archivos de model para products y categories.
+- En el archivo model de category, en la asociación pondremos hasMany porque una categoría puede tener muchos productos y el categoryId será la foreigKey que recibirá la parte del products porque así lo definimos en el modelo de products.
+- Por parte del archivo model de producst, esta debe ser belongsTo en la asociación porque el producto pertenece a X categoría (Products es quien carga con la relación).
+- Actualizamos el index del model con los datos de category y products.
+- Creamos una nueva migración para crear las nuevas tablas.
+- Corremos la nueva migración y verificamos que sí se hayan creado las tablas.
