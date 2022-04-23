@@ -192,6 +192,8 @@ CREATE TABLE tasks (
 - Modificamos el archivo customer model para agregar la relación con el modelo de ordenes en la función de associate.
 - Agregamos los datos de order en el archivo index de la carpeta model.
 - Creamos la migración para crear la tabla de ordenes.
+- Ejecutamos la migración y vemos en pgadmin que se haya hecho.
 - Modificamos/creamos el servicio de orders.
 - Creamos el orderSchema si aun no lo tenemos.
 - Creamos/modificamos el router de orders.
+- Probamos que todo vaya bien.
