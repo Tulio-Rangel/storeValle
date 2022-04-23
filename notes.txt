@@ -184,3 +184,14 @@ CREATE TABLE tasks (
 - Ahora sí trabajamos en el servicio de categories.
 - Modificamos el servicio de products ya que antes estaba almacenado en memoria y ahora lo queremos en nuestra base de datos.
 - Debemos modificar el schema de products para poder asignar categorias desde la creación de productos.
+
+16. Relación Muchos a Muchos.
+- Un producto puede estar en muchas órdenes de compra y una órden de compra puede tener muchos productos.
+- Empezamos creando una relacion uno a muchos entre órdenes y customer porque un customer puede tener muchas ordenes.
+- Creamos el modelo de órdenes.
+- Modificamos el archivo customer model para agregar la relación con el modelo de ordenes en la función de associate.
+- Agregamos los datos de order en el archivo index de la carpeta model.
+- Creamos la migración para crear la tabla de ordenes.
+- Modificamos/creamos el servicio de orders.
+- Creamos el orderSchema si aun no lo tenemos.
+- Creamos/modificamos el router de orders.
