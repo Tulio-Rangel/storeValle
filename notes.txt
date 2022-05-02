@@ -197,3 +197,10 @@ CREATE TABLE tasks (
 - Creamos el orderSchema si aun no lo tenemos.
 - Creamos/modificamos el router de orders.
 - Probamos que todo vaya bien.
+- INICIO DE LA RELACIÓN MUCHOS MUCHOS.
+- Creamos una tabla intermedia llamada order-product, para esto iniciamos con el modelo.
+- Hacemos la migración para crear la tabla.
+- Actualizamos el archivo generado del migrations.
+- Corremos la migración y revisamos en pgadmin que se haya creado la tabla.
+- Agregamos los datos de la nueva tabla al index de la carpeta model.
+- En el modelo de order, agregamos la relación con OrderProduct con un has many.

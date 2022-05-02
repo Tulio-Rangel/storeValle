@@ -31,17 +31,16 @@ const OrderSchema = {
 
 
 class Order extends Model {
-
   static associate(models) {
     this.belongsTo(models.Customer, {
       as: 'customer',
     });
-    // this.belongsToMany(models.Product, {
-    //   as: 'items',
-    //   through: models.OrderProduct,
-    //   foreignKey: 'orderId',
-    //   otherKey: 'productId'
-    // });
+    this.belongsToMany(models.Product, {
+      as: 'items', //estos son los ítenes de compra.
+      through: models.OrderProduct, //Esta línea hace referecia a la tabla ternaria con la cual haremos la relación.
+      foreignKey: 'orderId',
+      otherKey: 'productId',
+    });
   }
 
   static config(sequelize) {
@@ -49,8 +48,8 @@ class Order extends Model {
       sequelize,
       tableName: ORDER_TABLE,
       modelName: 'Order',
-      timestamps: false
-    }
+      timestamps: false,
+    };
   }
 }
 
