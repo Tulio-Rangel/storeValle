@@ -204,3 +204,7 @@ CREATE TABLE tasks (
 - Corremos la migración y revisamos en pgadmin que se haya creado la tabla.
 - Agregamos los datos de la nueva tabla al index de la carpeta model.
 - En el modelo de order, agregamos la relación con OrderProduct con un has many.
+- Creamos un schema para order-product, pero lo crearemos en el archivo de order porque igual es una orden, pero se puede hacer por separado sin ningún problema.
+- Al router de order le crearemon un nuevo endpoint para agregar los items, no olvidad también importar el schema que creamos.
+- En el service de order creamos una nueva función que sea para agregar el item, para poder usarla en el nuevo endpoint que creamos de items en orders.
+- En el servicio de orders, en el findOne, también vamos a agregar la asociación de items, para que tambipen nos traiga los items de la orden de compra.
