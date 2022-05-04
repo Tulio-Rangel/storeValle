@@ -1,0 +1,32 @@
+Ingresar datos masivos y hacer buenas pruebas de paginación.
+
+1.Instalar el paquete Faker
+npm i -D faker
+
+2. Crear una migración que va a ser del tipo insert en mi caso la llame “insert-users”
+npm run migrations:generate insert-users
+
+3. Editar el archivo de la migración.
+'use strict';
+
+const faker = require('faker');
+const users = [...Array(100)].map((user) => (
+  {
+    id: faker.datatype.uuid(),
+    email: faker.internet.email(),
+    password: 'qwerty123',
+    create_at: new Date()
+  }
+))
+
+module.exports = {
+  up: (queryInterface, Sequelize) => {
+    return queryInterface.bulkInsert('users', users, {});
+  },
+  down: (queryInterface, Sequelize) => {
+    return queryInterface.bulkDelete('users', null, {});
+  }
+};
+
+4. Ejecutar la migración.
+npm run migrations:run
