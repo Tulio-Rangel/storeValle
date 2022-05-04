@@ -209,3 +209,11 @@ CREATE TABLE tasks (
 - En el service de order creamos una nueva función que sea para agregar el item, para poder usarla en el nuevo endpoint que creamos de items en orders.
 - En el servicio de orders, en el findOne, también vamos a agregar la asociación de items, para que tambipen nos traiga los items de la orden de compra.
 - Sequelize nos permite sacar el total de la orden de compra, esto se hace en el modelo, pero no se guarda en la tabla de la bd pasando el dato como tipo virtual.
+
+17. Paginación.
+- ¿Qué es el limit? es la cantidad de elementos que quiero que me traiga la consulta.
+- ¿Qué es el offset? es como un apuntador, si lo dejamos en 0 es como la primera poscición de un array, si el limit es 2, este me trae los dos primeros elementos, pero la siguiente página, el offset sería 2 y me traería los elementos 3 y 4.
+- Agregamos el limit y el offset al service de product en el find all.
+- Agregamos también las respectivas queryparams(?) de limir y offset en el schema de product.
+- Requerimos lo anterior en el roter de products, en el get obviamente.
+- En el service de product en el find modificamos la función para hacer dinámico el limit y el offset con una const llamada options y con un if en caso de recibir el limit y el offset en la query.
