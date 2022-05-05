@@ -221,3 +221,7 @@ CREATE TABLE tasks (
 18. Realizar filtro por precio.
 - En el schema de products en el queryProductSchema, podemos colocar más parametros opcionales, esta vez pondremos también el precio que ya lo tenemos definido.
 - Modificamos el service en el find para poder trabajar cuando recibimos el precio.
+
+19. Realizar filtro por rango de precio.
+- En el schema de products creamos 2 Joi nuevos llamados price_min y price_max y lo agregamos al schema opcional que venimos trabajando.
+- Modificamos el service de product en el find para cuando el query reciba los precios.
