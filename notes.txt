@@ -239,5 +239,6 @@ CREATE TABLE tasks (
 - Se modifica también el archivo config de las migraciones por el tema de la URL de Heroku.
 - Creamos una rama llamada producción, aunque por lo general main es la rama producción, pero ajá.
 - Hacemos push a heroku de la siguiente forma, para que quede en la rama main de heroku: git push heroku production:main
-- Aquí hasta el momento ya subimos lo que necesitábamos a Heroku, pero nos faltan las migraciones, por lo que nos toca correr el siguiente comando: heroku run npm migrations:run para que corra todas las migraciones que hemos hecho hasta ahora.
+- Aquí hasta el momento ya subimos lo que necesitábamos a Heroku, pero nos faltan las migraciones, por lo que nos toca correr el siguiente comando: heroku run npm run migrations:run para que corra todas las migraciones que hemos hecho hasta ahora.
 - Se debe poner sequelize-CLI como una dependencia de producción para hacer lo anterior, antes la teníamos como una dependencia de desarrllo.
+- La migración no nos va a servir por el tema de que nosotros agregamos la columna rol después de crear la tabla users, en ese caso, eliminaremos el archivo de la migración donde se agrega la columna para poder correr la migración.

@@ -22,7 +22,7 @@ const options = {
 app.use(cors(options));
 
 app.get('/', (req, res) => {
-  res.send('Hola mi server en express');
+  res.send('Hola, esta es la documentación: https://github.com/Tulio-Rangel/storeValle');
 });
 
 app.get('/nueva-ruta', (req, res) => {
