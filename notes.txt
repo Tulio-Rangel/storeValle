@@ -217,3 +217,7 @@ CREATE TABLE tasks (
 - Agregamos también las respectivas queryparams(?) de limir y offset en el schema de product.
 - Requerimos lo anterior en el roter de products, en el get obviamente.
 - En el service de product en el find modificamos la función para hacer dinámico el limit y el offset con una const llamada options y con un if en caso de recibir el limit y el offset en la query.
+
+18. Realizar filtro por precio.
+- En el schema de products en el queryProductSchema, podemos colocar más parametros opcionales, esta vez pondremos también el precio que ya lo tenemos definido.
+- Modificamos el service en el find para poder trabajar cuando recibimos el precio.

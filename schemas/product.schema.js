@@ -33,7 +33,8 @@ const getProductSchema = Joi.object({
 //Estos datos son opcionales
 const queryProductSchema = Joi.object({
   limit,
-  offset
+  offset,
+  price
 });
 
 module.exports = { createProductSchema, updateProductSchema, getProductSchema, queryProductSchema }
