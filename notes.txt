@@ -237,3 +237,5 @@ CREATE TABLE tasks (
 - En el archivo sequelize está de la forma con una sola URL sea desarrollo o Producción.
 - Heroku nos pide unas modificaciones en la conexión con la bd, como el ssl, que agregamos al archivo.
 - Se modifica también el archivo config de las migraciones por el tema de la URL de Heroku.
+- Creamos una rama llamada producción, aunque por lo general main es la rama producción, pero ajá.
+- Hacemos push a heroku de la siguiente forma, para que quede en la rama main de heroku: git push heroku production:main
