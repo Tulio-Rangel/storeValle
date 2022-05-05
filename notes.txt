@@ -242,3 +242,5 @@ CREATE TABLE tasks (
 - Aquí hasta el momento ya subimos lo que necesitábamos a Heroku, pero nos faltan las migraciones, por lo que nos toca correr el siguiente comando: heroku run npm run migrations:run para que corra todas las migraciones que hemos hecho hasta ahora.
 - Se debe poner sequelize-CLI como una dependencia de producción para hacer lo anterior, antes la teníamos como una dependencia de desarrllo.
 - La migración no nos va a servir por el tema de que nosotros agregamos la columna rol después de crear la tabla users, en ese caso, eliminaremos el archivo de la migración donde se agrega la columna para poder correr la migración.
+- Para sacar el total de productos usamos un datatype virtual, pero esto nos da un error, por lo que nos toca modificar la migración.
+- Nos vamos al archivo de migracipón de order y modificamos el archivo.
