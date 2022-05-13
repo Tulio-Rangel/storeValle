@@ -245,3 +245,19 @@ CREATE TABLE tasks (
 - Para sacar el total de productos usamos un datatype virtual, pero esto nos da un error, por lo que nos toca modificar la migración.
 - Nos vamos al archivo de migracipón de order y modificamos el archivo.
 - La URL del delploy es https://storevalle.herokuapp.com
+
+21. Agregando Middlewares
+- Crearemos un nuevo archivo middleware para la autenticación, llamado auth.handler.js por ahora será para consumir otras APIs, pero de forma de ejemplo.
+- Exportamos la función chekApiKey al index general y la utilizamos para proteger el endpoint de nueva ruta, probamos en insomnia que funcione poniendo el header de api y el valor 123.
+- Cambiamos la API Key quemada por una variable de entorno.
+- En el archivo .env creamos la variable API_KEY y le asignamos el valor.
+- Agregamos esta nueva variable de entorno a nuestro archivo config.
+- Importamos el config en el middleware que creamos y lo usamos en el valor de la apikey.
+- Cada vez que se cambie una variable de entorno hay que reiniciar el servidor ya que las variables de entorno no tienen live loading.
+
+22. Hashing a las contraseñas.
+- Instalar bcrypt: npm i bcrypt
+- Ir al servicio de usuario a crear el hash.
+- Probamos en insomnia.
+- Para que no nos retorne el password al crear el nuevo usuario, agregamos una propiedad llamada delete.
+- También debemos agregar el hash al servicio de customer, pero este es diferente ya que el usuario está anidado.

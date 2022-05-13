@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const routerApi = require('./routes');
+const checkApikey = require('./middlewares/auth.handler');
 
 const { logErrors, errorHandler, boomErrorHandler, ormErrorHandler } = require('./middlewares/error.handler');
 
@@ -25,7 +26,7 @@ app.get('/', (req, res) => {
   res.send('Hola, esta es la documentación: https://github.com/Tulio-Rangel/storeValle');
 });
 
-app.get('/nueva-ruta', (req, res) => {
+app.get('/nueva-ruta', checkApikey, (req, res) => {
   res.send('Hola, soy una nueva ruta');
 });
 
