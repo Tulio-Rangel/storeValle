@@ -261,3 +261,16 @@ CREATE TABLE tasks (
 - Probamos en insomnia.
 - Para que no nos retorne el password al crear el nuevo usuario, agregamos una propiedad llamada delete.
 - También debemos agregar el hash al servicio de customer, pero este es diferente ya que el usuario está anidado.
+
+23. Login con Passport.js
+- Instalar passport y la estrategia passport-local: npm i passport passport-local la estrategia local es para hacer login local, existen otras estrategias como la de facebook, etc.
+- Creamos la carpeta utils si aun no la tenemos, dentro de esa carpeta creamo una carpeta llamada auth un archivo index.js y también dentro de esa carpeta una carpeta llamada strategies.
+- Dentro de la carpeta strategies creamos el primer archivo, local.strategy.js
+- Importamos la librería passport-local, creamos una nueva instancia de la strategy y la exportamos.
+- En el index.js de strategies requerimos passport y ahí es donde vamos a indicar las estrategias que vamos a utilizar.
+- Antes de seguir, debemos crear en nuestro servicio de usuario un find by email para que vaya junto al password.
+- Requerimos el user service en nuestro archivo de estrategia local.
+- Requerimos bcrypt
+- creamos la función para que compare el hash con la contraseña del usuario.
+- Creamos una nueva ruta, en este caso la llamaremos auth.
+- La requerimos en el index de los routers.
