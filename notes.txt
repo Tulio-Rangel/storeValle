@@ -277,3 +277,7 @@ CREATE TABLE tasks (
 
 24. Implementar JWT.
 - Instalar la libreria para JWT: npm install jsonwebtoken
+- Importamos jwt en nuestro router de auth.
+- Creamo una variable de entorno del secret, lo agregamos en nuestro config.
+- El secret lo podemos crear en keygen.io o https://randomkeygen.com/ en la opción WEP 256-bit key para tener un secret pro.
+- Creamos el codigo para firmar el token en el router del login.
