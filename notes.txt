@@ -281,3 +281,14 @@ CREATE TABLE tasks (
 - Creamo una variable de entorno del secret, lo agregamos en nuestro config.
 - El secret lo podemos crear en keygen.io o https://randomkeygen.com/ en la opción WEP 256-bit key para tener un secret pro.
 - Creamos el codigo para firmar el token en el router del login.
+
+25. Requerir el Token Desde las Otras Rutas.
+- Instalar passport-jwt: npm install passport-jwt
+- Creamos una nueva strategia de auth llamada jwt.strategy.js
+- Importar los métodos Strategy y ExtractJwt de la librería.
+- Requerimos el config para el secret.
+- Creamos nuestras options que le vamos a pasar.
+- y creamos la estrategia.
+- Importamos la nueva estrategia en el index de las estrategias.
+- Pasamos a agregar este jwt en los campos que queremos que tengan jwt, en este caso será el de crear categorías.
+- Para eso importamos passport y agragamos el passport en el método que deseamos.
