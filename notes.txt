@@ -274,3 +274,6 @@ CREATE TABLE tasks (
 - creamos la función para que compare el hash con la contraseña del usuario.
 - Creamos una nueva ruta, en este caso la llamaremos auth.
 - La requerimos en el index de los routers.
+
+24. Implementar JWT.
+- Instalar la libreria para JWT: npm install jsonwebtoken
