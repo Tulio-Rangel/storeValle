@@ -9,7 +9,7 @@ const {
   getProductSchema,
   queryProductSchema,
 } = require('./../schemas/product.schema');
-const { checkAdminRole } = require('../middlewares/auth2.handler')
+const { checkRoles } = require('../middlewares/auth2.handler')
 
 const router = express.Router();
 const service = new ProductsService();
@@ -44,7 +44,7 @@ router.get(
 router.post(
   '/',
   passport.authenticate('jwt', {session: false}),
-  checkAdminRole,
+  checkRoles('admin',),
   validatorHandler(createProductSchema, 'body'),
   async (req, res, next) => {
     try {

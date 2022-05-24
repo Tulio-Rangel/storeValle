@@ -296,3 +296,4 @@ CREATE TABLE tasks (
 26. Recibiendo los Roles por los JWT
 - Crear la función checkAdminRole en el middleware auth.handler
 - La importamos en donde la vayamos a implemetar.
+- Redefinimos la función a checkRole para no tener que crear un middleware por cada rol.
