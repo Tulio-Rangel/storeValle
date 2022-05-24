@@ -292,3 +292,7 @@ CREATE TABLE tasks (
 - Importamos la nueva estrategia en el index de las estrategias.
 - Pasamos a agregar este jwt en los campos que queremos que tengan jwt, en este caso será el de crear categorías.
 - Para eso importamos passport y agragamos el passport en el método que deseamos.
+
+26. Recibiendo los Roles por los JWT
+- Crear la función checkAdminRole en el middleware auth.handler
+- La importamos en donde la vayamos a implemetar.
