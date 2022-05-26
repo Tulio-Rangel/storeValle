@@ -297,3 +297,8 @@ CREATE TABLE tasks (
 - Crear la función checkAdminRole en el middleware auth.handler
 - La importamos en donde la vayamos a implemetar.
 - Redefinimos la función a checkRole para no tener que crear un middleware por cada rol.
+
+27. Obteniendo Órdenes Según el Perfil que esté Autenticado.
+- Crear el archivo profile.router.js
+- Creamos un nuevo servicio en el service de ordenes llamado findByuser
+- Añadimos el router a nustro index de routers.
