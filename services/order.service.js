@@ -3,11 +3,27 @@ const boom = require('@hapi/boom');
 const { models } = require('./../libs/sequelize');
 
 class OrderService {
-
-  constructor(){}
+  constructor() {}
 
   async create(data) {
-    const newOrder = await models.Order.create(data);
+    //const newOrder = await models.Order.create(data);
+    //return newOrder;
+    // Accedemos al modelo Customer y usando where encadenamos hacia user
+    const customer = await models.Customer.findAll({
+      where: {
+        '$user.id$': data.userId,
+      },
+      include: ['user'],
+    });
+    // Validamos que exista el customer
+    if (!customer) {
+      throw boom.notFound('Customer not found');
+    }
+    // Creamos un objeto con el customerId obtenido de la consulta
+    const dataOrder = {
+      customerId: customer[0].id,
+    };
+    const newOrder = await models.Order.create(dataOrder);
     return newOrder;
   }
 
@@ -19,14 +35,14 @@ class OrderService {
   async findByUser(userId) {
     const orders = await models.Order.findAll({
       where: {
-        '$customer.user.id$': userId //Buscamos el el customer id asociado al user id
+        '$customer.user.id$': userId, //Buscamos el el customer id asociado al user id
       },
       include: [
         {
           association: 'customer',
-          include: ['user']
+          include: ['user'],
         },
-      ]
+      ],
     });
     return orders;
   }
@@ -40,10 +56,10 @@ class OrderService {
       include: [
         {
           association: 'customer',
-          include: ['user']
+          include: ['user'],
         },
-        'items'
-      ]
+        'items',
+      ],
     });
     return order;
   }
@@ -58,7 +74,6 @@ class OrderService {
   async delete(id) {
     return { id };
   }
-
 }
 
 module.exports = OrderService;

@@ -302,3 +302,9 @@ CREATE TABLE tasks (
 - Crear el archivo profile.router.js
 - Creamos un nuevo servicio en el service de ordenes llamado findByuser
 - Añadimos el router a nustro index de routers.
+
+28. Crear Órdenes de compra cuando ya el usuario está autenticado.
+- Se comenta o elimina la linea en donde está el validatorHandler porque ahora lo va a recibir por el sub.
+- Se modifica la linea del const body porque ahora no vendrá del req.body sino del sub.
+- Se debe agregar el passport validator entonces.
+- En el service de order modificamos el create tal como quedó en el código.
