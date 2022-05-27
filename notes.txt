@@ -324,3 +324,13 @@ CREATE TABLE tasks (
 - Cambiamos el puerto a 465
 - Cambiamos el user a nuestro correo de Gmail.
 - El usuario y la variable deberían estar como variables de entorno.
+
+30. Implementando el Envío de Emails (Recovery Password).
+- En el router de auth creamos un nuevo endpoint llamado recovery.
+- No necesitamos el passport.authenticate porque el usuario no está autenticado. Duh!
+- Como tenemos muicha lógica de auth regada por ahí, creamos un servicio para auth.
+- Cambiamos la configuración del local strategy:
+- Cambiamos el user service por auth service en nuestra local strategy.
+- Requerimos el auth service en el auth router.
+- Modificamos el endpoint de login ya que ahora esa lógica la tenemos en el service.
+- Terminamos de crear la lógica de la ruta de recovery.
