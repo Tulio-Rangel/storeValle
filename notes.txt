@@ -308,3 +308,19 @@ CREATE TABLE tasks (
 - Se modifica la linea del const body porque ahora no vendrá del req.body sino del sub.
 - Se debe agregar el passport validator entonces.
 - En el service de order modificamos el create tal como quedó en el código.
+
+29. Enviar Correos con Nodejs
+- Instalar nodemailer: npm install nodemailer
+- Creamos un usuario de pruebas en https://ethereal.email/
+- Se le da en crear cuenta
+- Se copia desde el puerto (port) hasta el auth (todo el objeto) en la variable transporter y ya no necesirariamos la función de create.
+- Configurando Gmail para el servicio smtp:
+- Nos vamos a Gmail, en account o cuenta, luego a seguridad, se debe tener activa la verificación en 2 pasos.
+- Le damos en contraseñas de otras aplicaciones
+- En seleccionar aplicación le damos a otra y le ponemos como nombre NodeApp y le damos a generar.
+- Eso nos va a dar una contraseña que es la que pondremos en el auth.
+- El host de smtp lo cambiamos a gmail.com
+- El secure lo cambiamos a true
+- Cambiamos el puerto a 465
+- Cambiamos el user a nuestro correo de Gmail.
+- El usuario y la variable deberían estar como variables de entorno.
