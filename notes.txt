@@ -344,3 +344,9 @@ CREATE TABLE tasks (
 - En el archivo generado de la migración, agragamos el código necesario para hacer la adición de la columna.
 - Corremos la migración con: npm run migrations:run
 - En nuestro auth service en el sendRecovery ya que tenemos el service de user, utilizaremos el service de update del user porque vamos a actualizar su entrada, no a crear una nueva.
+
+32. Validando el Token para Recuperar Contraseña.
+- Creamos un nuevo endpoint en nuestro router de auth llamado change-password.
+- En el Service de auth creamos un nuevo método que se llame changePassword.
+- Debemos cambiar el retorno del login ya que nos está devolviendo el recovery token.
+- Para eso agragamos un linea de código al getUser del auth Service: delete user.dataValues.recoveryToken;
