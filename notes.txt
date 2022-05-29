@@ -334,3 +334,13 @@ CREATE TABLE tasks (
 - Requerimos el auth service en el auth router.
 - Modificamos el endpoint de login ya que ahora esa lógica la tenemos en el service.
 - Terminamos de crear la lógica de la ruta de recovery.
+
+31. Generando Link de Recuperación.
+- Refactorizamos el código del servcie donde enviamos el email y lo dividimos en 2 uno para recovery y otro para el envio general.
+- Empezamos a redactar el correo de recuperar contraseña.
+- Esta vez debemos guardar el token en la bd para evitar que nos envien tokens falsos... Aunque igual si no corresponde con la firma no va a servir, pero ajá, más seguridad.
+- Corremos la migración: npm run migrations:generate recovery-token-field
+- Debemos modificar el user model para agregar la nueva columna.
+- En el archivo generado de la migración, agragamos el código necesario para hacer la adición de la columna.
+- Corremos la migración con: npm run migrations:run
+- En nuestro auth service en el sendRecovery ya que tenemos el service de user, utilizaremos el service de update del user porque vamos a actualizar su entrada, no a crear una nueva.
