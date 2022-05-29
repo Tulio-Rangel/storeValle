@@ -350,3 +350,8 @@ CREATE TABLE tasks (
 - En el Service de auth creamos un nuevo método que se llame changePassword.
 - Debemos cambiar el retorno del login ya que nos está devolviendo el recovery token.
 - Para eso agragamos un linea de código al getUser del auth Service: delete user.dataValues.recoveryToken;
+- Ya aquí podemos deplegar en Heroku.
+- Verificamos que nuestras variables de entorno estén en Heroku.
+- corremos el comando para borrar las migraciones en Heroku (Esto no se hace si ya está en producción).
+- Hacemos push a Heroku.
+- Corremos las migraciones en Heroku.
